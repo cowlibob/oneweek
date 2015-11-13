@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Oneweek</title>
+  <title>OneWeek</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">OneWeek</a>
+      </div>
+      <ul class="nav navbar-right">
+        <% if current_user -%>
+          <li><%= link_to 'Logout', logout_path, method: :delete, class: "btn navbar-btn", id: "logout_btn", role: "button" %></li>
+        <% end -%>
+      </ul>
+    </div>
+  </nav>
 
-<%= yield %>
-
+  <% if flash[:notice] -%><div class="alert alert-success" role="alert"><%= flash[:notice] -%></div><% end -%>
+  <% if flash[:error] -%><div class="alert alert-danger" role="alert"><%= flash[:error] -%></div><% end -%>
+  <div class="container">
+    <% if current_user.nil? -%>
+      <div class="jumbotron">
+        <h1>OneWeek Routes</h1>
+        <p>Login with Twitter to get started uploading and viewing your GPX routes.</p>
+        <p><a id="login_btn" class="btn btn-primary btn-lg" href="/auth/twitter" role="button">Login with Twitter</a></p>
+      </div>
+    <% else -%>
+      <%= yield %>
+    <% end -%>
+  </div>
 </body>
 </html>
