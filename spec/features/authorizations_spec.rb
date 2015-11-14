@@ -18,7 +18,7 @@ feature "Authorizations", :type => :feature do
     click_link "login_btn"
 
     expect(page).to have_content('Sorry, we could not log you in.')
-    expect(page).not_to have_content('Routes')
+    expect(page).not_to have_content('Your Routes')
   end
 
 end

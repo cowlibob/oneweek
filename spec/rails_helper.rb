@@ -48,3 +48,9 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
+
+def login_user
+  visit root_url
+  mock_omniauth_hash
+  click_link "login_btn"
+end

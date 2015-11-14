@@ -1,0 +1,5 @@
+<%= bootstrap_form_for(@route) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.file_field :xml %>
+  <%= f.submit "Upload", id: 'upload_btn', class: 'btn btn-primary'%>
+<% end %>

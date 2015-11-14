@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'routes#index'
 
-  resources :routes, only: 'index'
+  resources :routes, only: ['index', 'new', 'create']
 
   resources :sessions, only: ['create', 'destroy']
   get '/auth/:provider/callback', to: 'sessions#create'
