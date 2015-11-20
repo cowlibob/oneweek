@@ -1,9 +1,9 @@
 <tr>
   <td><%= link_to route.name, route_path(route) %></td>
-    <td> <%= route.total_distance_in_km.round(2) %> </td>
+    <td> <%= distance(route.total_distance_in_km.round(2)) %> </td>
     <% if route.has_track? -%>
-      <td> <%= route.max_speed_in_kph.round(2) %> </td>
-      <td> <%= route.average_speed_in_kph.round(2) %> </td>
+      <td> <%= speed(route.max_speed_in_kph.round(2)) %> </td>
+      <td> <%= speed(route.average_speed_in_kph.round(2)) %> </td>
       <td> <%= display_time(route.total_time_in_seconds) %> </td>
       <td> <%= route.start %> </td>
     <% else -%>

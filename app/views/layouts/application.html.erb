@@ -13,6 +13,17 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="/">OneWeek</a>
       </div>
+      <div class="navbar-form navbar-left">
+
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-default <%= 'active' unless use_miles? %>">
+            <input type="radio" name="options" id="km-select" autocomplete="off" <%= 'checked' unless use_miles? %>> Kilometers
+          </label>
+          <label class="btn btn-default <%= 'active' if use_miles? %>">
+            <input type="radio" name="options" id="miles-select" autocomplete="off" <%= 'checked' if use_miles? %>> Miles
+          </label>
+        </div>
+      </div>
       <ul class="nav navbar-right">
         <% if current_user -%>
           <li><%= link_to 'Logout', logout_path, method: :delete, class: "btn navbar-btn", id: "logout_btn", role: "button" %></li>

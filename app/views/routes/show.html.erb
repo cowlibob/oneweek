@@ -20,12 +20,12 @@
   <div class="panel-body">
     <div class='pull-right'><%= button_to "Delete", route_path(@route), method: :delete, class: 'btn btn-danger', data: {confirm: t('confirm_delete', route_name: @route.name)} %></div>
     <dl class=''>
-      <dt>Total Distance</dt><dd><%= @route.total_distance_in_km.round(2) %></dd>
+      <dt>Total Distance</dt><dd><%= distance(@route.total_distance_in_km.round(2)) %></dd>
       <% if @route.has_track? -%>
         <dt>Start</dt><dd><%= @route.start %></dd>
         <dt>Total Time</dt><dd><%= display_time(@route.total_time_in_seconds) %></dd>
-        <dt>Max Speed</dt><dd><%= @route.max_speed_in_kph.round(2) %></dd>
-        <dt>Average Speed</dt><dd><%= @route.average_speed_in_kph.round(2) %></dd>
+        <dt>Max Speed</dt><dd><%= speed(@route.max_speed_in_kph.round(2)) %></dd>
+        <dt>Average Speed</dt><dd><%= speed(@route.average_speed_in_kph.round(2)) %></dd>
       <% end -%>
     </dl>
 

@@ -1,6 +1,7 @@
 <% content_for :title do %>
 OneWeek
 <% end -%>
+
 <div class="row">
   <div class="col-md-8">
     <div class="panel panel-default">
@@ -10,9 +11,9 @@ OneWeek
       <table class="table table-hover">
         <tr>
           <th>Route Name</th>
-          <th>Distance (km)</th>
-          <th>Max Speed (kph)</th>
-          <th>Average Speed (kph)</th>
+          <th>Distance (<%= distance_unit %>)</th>
+          <th>Max Speed (<%= speed_unit %>)</th>
+          <th>Average Speed (<%= speed_unit %>)</th>
           <th>Total Time</th>
           <th>Date</th>
         </tr>

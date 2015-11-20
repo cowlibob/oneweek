@@ -32,12 +32,6 @@ class Route < ActiveRecord::Base
 
   before_save :calculate_stats
 
-
-  # def to_miles(km_value)
-  #   km_value / 1.6093
-  # end
-  #
-
   def average_speed_in_kph
     total_distance_in_km / total_time_in_seconds * 3600
   end
