@@ -30,9 +30,11 @@ function setCookie(key, value) {
 $(function(){
   $('#km-select').on('change', function () {
     setCookie('units', 'km');
+    document.location.reload();
   })
 
   $('#miles-select').on('change', function () {
     setCookie('units', 'miles');
+    document.location.reload();
   })
 });
