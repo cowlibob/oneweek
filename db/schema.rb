@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113234438) do
+ActiveRecord::Schema.define(version: 20151117201238) do
 
   create_table "routes", force: :cascade do |t|
     t.string   "name"
     t.text     "xml"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.float    "total_distance_in_km"
+    t.integer  "total_time_in_seconds"
+    t.float    "max_speed_in_kph"
   end
 
 end

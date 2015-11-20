@@ -1,6 +1,6 @@
 class RoutesController < ApplicationController
   def index
-    @routes = Route.all
+    @routes = Route.where(user_id: session[:user_id]).all
   end
 
   def new
@@ -8,7 +8,7 @@ class RoutesController < ApplicationController
   end
 
   def create
-    @route = Route.new(name: route_params[:name], xml: route_params[:xml].read)
+    @route = Route.new(user_id: session[:user_id], name: route_params[:name], xml: route_params[:xml].read)
     if @route.save
       flash[:notice] = "Successfully uploaded new route."
       redirect_to action: :index
@@ -17,6 +17,20 @@ class RoutesController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @route = Route.find(params[:id])
+  end
+
+  def destroy
+    @route = Route.find(params[:id])
+    if @route
+      @route.destroy
+      flash[:notice] = "Successfully deleted the route."
+      redirect_to routes_path
+    end
+  end
+
 
   private
 

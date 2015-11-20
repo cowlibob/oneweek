@@ -21,3 +21,4 @@
 
 en:
   hello: "Hello world"
+  confirm_delete: "Really delete route '%{route_name}'?"
